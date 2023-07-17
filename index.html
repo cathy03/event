@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="재미있는 승차 공유 플랫폼, 풀러팅. 드라이브 이벤트">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.poolirting.com/">
+  <meta property="og:title" content="POOLIRTING">
+  <meta property="og:image" content="og_img.jpg">
+  <meta property="og:description" content="재미있는 승차 공유 플랫폼, 풀러팅. 드라이브 이벤트">
+  <meta property="og:site_name" content="같이 가자. 풀러팅">
+  <meta name="naver-site-verification" content="5583dcc6461d7474472f2eb6ec9ae759991c7fc2" />
+  <link rel="apple-touch-icon" sizes="57x57" href="img/favi/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="img/favi/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/favi/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="img/favi/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/favi/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="img/favi/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="img/favi/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="img/favi/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favi/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="img/favi/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favi/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favi/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favi/favicon-16x16.png">
+  <link rel="manifest" href="img/favi/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="img/favi/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/index.css">
+  <title>같이 가자. 풀러팅 드라이브 이벤트</title>
+</head>
+<body>
+  <div class="root">
+    <div class="contents">
+      <div class="main-content-wrap">
+        <section>
+          <img src="img/event_01.png" alt="">
+          <img src="img/event_02.png" alt="">
+        </section>
+      </div>
+    </div>
+    <div class="main-content-wrap">
+      <section id="btnShare">
+        <img src="img/event_share.jpg" alt="">
+      </section>
+      <section class="footer">
+        <img src="img/event_footer.jpg" alt="">
+      </section>
+    </div>
+    <button onclick="appLink()" class="download-button">이벤트 참여하기</button>
+  </div>
+  <script type="text/javascript">
+   
+  var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기    
+  const appLink = () =>{
+    if ( varUA.indexOf('android') > -1) {
+    //안드로이드
+    window.open("https://play.google.com/store/apps/details?id=com.plt.poolirting", "_blank");
+} else if ( varUA.indexOf("iphone") > -1 || varUA.indexOf("ipad") > -1 ||varUA.indexOf("ipod") > -1 ) {
+    //IOS
+    window.open("https://apps.apple.com/kr/app/%ED%92%80%EB%9F%AC%ED%8C%85-poolirting/id1666746536", "_blank");
+} else {
+    //아이폰, 안드로이드 외 모바일
+    // window.open("https://www.poolirting.com/", "_blank");
+    window.open("https://play.google.com/store/apps/details?id=com.plt.poolirting", "_blank");
+}
+  }
+
+  var btnShare = document.getElementById('btnShare');
+
+  btnShare.addEventListener("click", function(){
+
+    var shareTitle = "공유하기 기능 테스트";
+    var shareText = '공유하기 기능 입니다.';
+    var shareURL = 'www,poolirting.com';
+
+    if(navigator.share){
+      navigator.share({
+        title: shareTitle,
+        text: shareText,
+        url: shareURL,
+      })
+      .then(()=> console.log('Successful share'))
+      .catch((error) => console.log('Error sharing', error));
+    }else{
+      alert("공유하기를 지원하지 않는 환경입니다.");
+    }
+  });
+  </script>
+</body>
+</html>
